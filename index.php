@@ -1,4 +1,9 @@
 <?php include 'database.php'; ?>
+<?php
+	// Create Select query
+	$query = "Select * from chats";
+	$chats = mysqli_query($con,$query);
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,13 +18,9 @@
 			</header>
 			<div id="chats">
 				<ul>
-					<li class="chats"><span>10:15 pm - </span> Cam: What are you doing? </li>
-					<li class="chats"><span>10:15 pm - </span> Cam: What are you doing? </li>
-					<li class="chats"><span>10:15 pm - </span> Cam: What are you doing? </li>
-					<li class="chats"><span>10:15 pm - </span> Cam: What are you doing? </li>
-					<li class="chats"><span>10:15 pm - </span> Cam: What are you doing? </li>
-					<li class="chats"><span>10:15 pm - </span> Cam: What are you doing? </li>
-					<li class="chats"><span>10:15 pm - </span> Cam: What are you doing? </li>
+					<?php while($row = mysqli_fetch_assoc($chats)) : ?>
+						<li class="chats"><span><?php echo $row['time'] ?> - </span><strong><?php echo $row['user'] ?></strong>: <?php echo $row['message'] ?> </li>
+					<?php endwhile; ?>					
 				</ul>
 			</div>
 			<div id="input">
