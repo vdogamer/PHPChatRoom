@@ -15,7 +15,7 @@ body {
 	margin: 50px auto;
 	overflow:auto;
 	width:60%;
-	min-height:400px;
+	min-height:630px;
 }
 
 header h1{
@@ -60,7 +60,13 @@ header h1{
 
 #input .chat-btn{
 	padding:5px;
-	margin-bottom;20px;
+	margin-bottom;30px;
 	width:100%;
 	margin:10px auto;
+}
+
+@media only screen and (max-width:768px) {
+	#input input[type="text"]{
+		width:98%;
+	}
 }
